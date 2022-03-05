@@ -8,12 +8,13 @@ export interface NavigationItemDto {
   slug: string;
   external: boolean;
   related: PageDto;
-  items?: (NavigationItemDto | null)[] | null;
+  items: NavigationItemDto[];
 }
 
 export interface PageDto {
   id: number;
   name: string;
+  type: string;
   content?: null;
   createdAt: string;
   updatedAt: string;

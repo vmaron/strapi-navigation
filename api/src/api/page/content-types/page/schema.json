@@ -4,7 +4,8 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Page"
+    "displayName": "Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,15 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "page",
+        "section"
+      ],
+      "default": "page",
+      "required": true
     }
   }
 }

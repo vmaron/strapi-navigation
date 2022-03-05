@@ -5,15 +5,17 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {CoreModule} from "../core/core.module";
 import {environment} from "../environments/environment";
+import {MenuModule} from "./components/menu/menu.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     CoreModule.forRoot({rootUrl: environment.api}),
+    MenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
