@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-generic-content',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenericContentComponent implements OnInit {
 
-  constructor() { }
+  routeUrl: string = '';
+
+  constructor(private readonly route: ActivatedRoute,
+              private router: Router) {
+  }
 
   ngOnInit(): void {
+    this.routeUrl = this.router.url;
+    this.router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        this.routeUrl = this.router.url;
+      }
+    });
   }
 
 }
