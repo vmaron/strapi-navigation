@@ -15,9 +15,6 @@
     "name": {
       "type": "string"
     },
-    "content": {
-      "type": "richtext"
-    },
     "type": {
       "type": "enumeration",
       "enum": [
@@ -26,6 +23,11 @@
       ],
       "default": "page",
       "required": true
+    },
+    "pageContent": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page-content.page-content"
     }
   }
 }
