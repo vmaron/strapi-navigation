@@ -3,12 +3,37 @@ import {CommonModule} from '@angular/common';
 import {ApiConfiguration, ApiConfigurationParams} from "./http/api-configuration";
 import {NavigationService} from "./services";
 
+import {AppState, reducers, selectRouterState} from './core.state';
+import {StoreModule} from '@ngrx/store';
+import {RouterStateSerializer, StoreRouterConnectingModule} from '@ngrx/router-store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {CustomSerializer} from './router/custom-serializer';
+import {EffectsModule} from '@ngrx/effects';
+import {NavigationEffects} from './navigation/navigation.effects';
+import {environment} from "../environments/environment";
+
+
+export {
+  AppState,
+  selectRouterState
+};
 
 @NgModule({
   declarations: [],
-  providers: [NavigationService],
+  providers: [NavigationService, {provide: RouterStateSerializer, useClass: CustomSerializer}],
   imports: [
-    CommonModule
+    CommonModule,
+    // ngrx
+    StoreModule.forRoot(reducers, {}),
+    StoreRouterConnectingModule.forRoot(),
+    EffectsModule.forRoot([
+      NavigationEffects
+    ]),
+    environment.production
+      ? []
+      : StoreDevtoolsModule.instrument({
+        name: 'Strapi Navigation NgRx Store'
+      })
   ]
 })
 export class CoreModule {

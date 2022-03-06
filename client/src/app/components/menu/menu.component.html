@@ -1,7 +1,7 @@
 <nav
-  class="relative w-full flex flex-wrap items-center justify-between py-3 bg-blue-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light"
+  class="relative w-full flex flex-wrap items-center justify-between bg-blue-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light"
 >
-  <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+  <div class="container-fluid h-18 py-2 w-full flex flex-wrap items-center justify-between px-6">
     <button
       class="navbar-toggler text-gray-200 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
       type="button"
@@ -39,8 +39,8 @@
 
           <li class="nav-item p-2" *ngIf="!item.menuAttached; else menuAttached">
             <a
-              class="nav-link block pr-2 lg:px-2 py-2 text-white opacity-60 hover:opacity-80 focus:opacity-80 transition duration-150 ease-in-out"
-              [routerLink]="item.path"
+              class="nav-link block cursor-pointer pr-2 lg:px-2 py-2 text-white opacity-60 hover:opacity-80 focus:opacity-80 transition duration-150 ease-in-out"
+              (click)="handleMenuItemClick(item)"
             > {{ item.title }}</a
             >
           </li>
@@ -57,25 +57,17 @@
                 <div class="px-6 lg:px-8 py-5">
                   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="bg-white text-gray-600" *ngFor="let subItem of item.items; let i = index">
-                      <ng-container *ngIf="subItem.related.type == 'section'; else page">
+                      <ng-container *ngIf="subItem.related.type == 'section'">
                         <p class="block px-6 py-2 w-full uppercase font-semibold text-gray-700">{{subItem.title}}</p>
-                        <ng-container *ngFor="let menItems of subItem.items; let i = index">
+                        <ng-container *ngFor="let childItem of subItem.items; let i = index">
                           <a
-                            [routerLink]="menItems.path"
+                            (click)="handleMenuItemClick(childItem)"
                             aria-current="true"
-                            class="block px-6 py-2 w-full hover:bg-gray-50 hover:text-gray-700 transition duration-150 ease-in-out flex items-center">
-                            {{menItems.title}}
+                            class="cursor-pointer block px-6 py-2 w-full hover:bg-gray-50 hover:text-gray-700 transition duration-150 ease-in-out flex items-center">
+                            {{childItem.title}}
                           </a>
                         </ng-container>
                       </ng-container>
-                      <ng-template #page>
-                        <a
-                          [routerLink]="subItem.path"
-                          aria-current="true"
-                          class="block px-6 py-2 w-full hover:bg-gray-50 hover:text-gray-700 transition duration-150 ease-in-out flex items-center">
-                          {{subItem.title}}
-                        </a>
-                      </ng-template>
                     </div>
                   </div>
                 </div>

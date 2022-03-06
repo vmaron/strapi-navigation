@@ -1,5 +1,8 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NavigationItemDto} from "../../../core/navigation/navigation.model";
+import {Router} from "@angular/router";
+import {Store} from "@ngrx/store";
+import {actionLoadPage} from "../../../core/navigation/navigtion.actions";
 
 @Component({
   selector: 'app-menu',
@@ -14,9 +17,17 @@ export class MenuComponent implements OnInit {
     this._menuItems = value;
     console.log(this._menuItems);
   }
-  constructor() { }
+
+  constructor(
+    private router: Router,
+    private store: Store) {
+  }
 
   ngOnInit(): void {
 
+  }
+
+  handleMenuItemClick(item: NavigationItemDto) {
+    this.store.dispatch(actionLoadPage({payload: {page: item}}));
   }
 }
