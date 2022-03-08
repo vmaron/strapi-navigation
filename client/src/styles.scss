@@ -2,3 +2,48 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+.content {
+  ul {
+    @apply list-disc ml-5 mb-4;
+    li p {
+      @apply mb-1;
+    }
+  }
+
+  p {
+    @apply mb-2 text-slate-900;
+  }
+
+  h2 {
+    @apply text-3xl font-black;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply text-xl font-semibold;
+  }
+
+  table {
+    @apply table-fixed border-collapse border border-slate-400;
+  }
+
+  td {
+    @apply border border-slate-300 p-4 text-slate-500;
+  }
+
+  th {
+    @apply w-1/2 border border-slate-300 font-semibold p-4 text-slate-900 text-left;
+  }
+
+  th, td p {
+    @apply mb-0;
+  }
+
+}
+
+
+
+
