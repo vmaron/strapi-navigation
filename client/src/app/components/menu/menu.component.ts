@@ -28,6 +28,6 @@ export class MenuComponent implements OnInit {
   }
 
   handleMenuItemClick(item: NavigationItemDto) {
-    this.store.dispatch(actionLoadPage({payload: {page: item}}));
+    this.store.dispatch(actionLoadPage({payload: {currentPage: item}}));
   }
 }

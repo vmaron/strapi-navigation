@@ -24,3 +24,32 @@ export interface PageDto {
   __templateName: string;
 }
 
+export interface PageContent {
+  id: number;
+  name: string;
+  body: string;
+}
+
+export interface PageContentDto {
+  data: {
+    id: number;
+    attributes: {
+      name: string;
+      type: string;
+      pageContent: {
+        data: {
+          id: number;
+          attributes: {
+            createdAt: string;
+            updatedAt: string;
+            body: string;
+          };
+        };
+      };
+    };
+  }
+}
+
+
+
+

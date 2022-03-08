@@ -3,7 +3,7 @@ import {BaseService} from "../http/base-service";
 import {HttpClient} from "@angular/common/http";
 import {ApiConfiguration} from "../http/api-configuration";
 import {Observable} from "rxjs";
-import {NavigationItemDto} from "./navigation.model";
+import {NavigationItemDto, PageContentDto} from "./navigation.model";
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +20,10 @@ export class NavigationService extends BaseService {
   getNavigationMenu(): Observable<Array<NavigationItemDto>> {
     const url = `${this.rootUrl}/navigation/render/home?type=tree`;
     return this.http.get<Array<NavigationItemDto>>(url);
+  }
+
+  getPageContent(pageId: number): Observable<PageContentDto> {
+    const url = `${this.rootUrl}/pages/${pageId}?fields=name,type&populate=pageContent`;
+    return this.http.get<PageContentDto>(url);
   }
 }
