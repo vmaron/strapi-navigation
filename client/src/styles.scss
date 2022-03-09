@@ -10,20 +10,35 @@
     }
   }
 
+  ol {
+    @apply list-decimal ml-5 mb-4;
+    li p {
+      @apply mb-1;
+    }
+  }
+
   p {
-    @apply mb-2 text-slate-900;
+    @apply mb-2 text-slate-900 leading-relaxed;
+  }
+
+  h1 {
+    @apply text-4xl font-black leading-relaxed;
   }
 
   h2 {
-    @apply text-3xl font-black;
+    @apply text-3xl font-black leading-relaxed;
   }
 
   h3 {
-    @apply text-2xl font-semibold;
+    @apply text-2xl font-extrabold leading-relaxed;
   }
 
   h4 {
-    @apply text-xl font-semibold;
+    @apply text-xl font-bold leading-relaxed;
+  }
+
+  h5 {
+    @apply text-xl font-semibold leading-relaxed;
   }
 
   table {

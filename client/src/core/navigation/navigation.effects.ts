@@ -34,9 +34,9 @@ export class NavigationEffects {
                     const {name, pageContent} = response.data.attributes;
                     const body = pageContent.data?.attributes?.body || '';
 
-                    this.store.dispatch(actionLoadPageContent({
+                    setTimeout(() => this.store.dispatch(actionLoadPageContent({
                       payload: {id, name, body}
-                    }));
+                    })), 500);
 
                   },
                   error: error => {

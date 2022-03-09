@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {GenericContentRoutingModule} from './generic-content-routing.module';
 import {GenericContentComponent} from './generic-content.component';
 import {SafeHtmlPipe} from "./pipes/safe-html.pipe";
+import {LoadingIndicatorModule} from "../../components/loading-indicator/loading-indicator.module";
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {SafeHtmlPipe} from "./pipes/safe-html.pipe";
   ],
   imports: [
     CommonModule,
-    GenericContentRoutingModule
+    GenericContentRoutingModule,
+    LoadingIndicatorModule
   ]
 })
 export class GenericContentModule {

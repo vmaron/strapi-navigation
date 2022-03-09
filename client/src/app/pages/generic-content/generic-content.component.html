@@ -1,11 +1,19 @@
-<div class="flex min-w-full min-h-full justify-center align-middle px-10 py-5">
-  <div
-    *ngIf="pageBody; else routeName"
-    [innerHTML]="pageBody | safehtml"
-    class="content">
-  </div>
+<div class="flex min-w-full min-h-full justify-center align-middle px-10 py-5 lg:px-40 lg:py-10">
 
-  <ng-template #routeName>
-    <p>{{routeUrl}}</p>
+  <app-loading-indicator *ngIf="loading; else loaded">
+  </app-loading-indicator>
+
+  <ng-template #loaded>
+    <div
+      *ngIf="pageBody; else routeName"
+      [innerHTML]="pageBody | safehtml"
+      class="content">
+    </div>
+
+    <ng-template #routeName>
+      <p>{{routeUrl}}</p>
+    </ng-template>
   </ng-template>
+
+
 </div>
