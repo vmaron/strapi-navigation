@@ -10,6 +10,10 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
+      screens: {
+        'lg': '992px',
+        // => @media (min-width: 992px) { ... }
+      },
     },
   },
   plugins: [

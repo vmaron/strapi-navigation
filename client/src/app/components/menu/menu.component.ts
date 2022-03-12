@@ -12,6 +12,7 @@ import {actionLoadPage} from "../../../core/navigation/navigtion.actions";
 export class MenuComponent implements OnInit {
 
   _menuItems: Array<NavigationItemDto> = [];
+  isOpen: boolean = false;
 
   @Input() set menuItems(value: Array<NavigationItemDto>) {
     this._menuItems = value;
@@ -29,5 +30,9 @@ export class MenuComponent implements OnInit {
 
   handleMenuItemClick(item: NavigationItemDto) {
     this.store.dispatch(actionLoadPage({payload: {currentPage: item}}));
+  }
+
+  toggleNavMenu() {
+    this.isOpen = !this.isOpen;
   }
 }
