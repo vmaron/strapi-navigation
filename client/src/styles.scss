@@ -2,62 +2,66 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-.content {
-  ul {
-    @apply list-disc ml-5 mb-4;
-    li p {
-      @apply mb-1;
+@layer components {
+  .content {
+    ul {
+      @apply list-disc ml-5 mb-4;
+      li p {
+        @apply mb-1;
+      }
     }
-  }
 
-  ol {
-    @apply list-decimal ml-5 mb-4;
-    li p {
-      @apply mb-1;
+    ol {
+      @apply list-decimal ml-5 mb-4;
+      li p {
+        @apply mb-1;
+      }
     }
-  }
 
-  p {
-    @apply mb-2 text-slate-900 leading-relaxed;
-  }
+    p {
+      @apply mb-2 leading-relaxed;
+    }
 
-  h1 {
-    @apply text-4xl font-black leading-relaxed;
-  }
+    h1 {
+      @apply text-4xl font-black leading-relaxed;
+    }
 
-  h2 {
-    @apply text-3xl font-black leading-relaxed;
-  }
+    h2 {
+      @apply text-3xl font-black leading-relaxed;
+    }
 
-  h3 {
-    @apply text-2xl font-extrabold leading-relaxed;
-  }
+    h3 {
+      @apply text-2xl font-extrabold leading-relaxed;
+    }
 
-  h4 {
-    @apply text-xl font-bold leading-relaxed;
-  }
+    h4 {
+      @apply text-xl font-bold leading-relaxed;
+    }
 
-  h5 {
-    @apply text-xl font-semibold leading-relaxed;
-  }
+    h5 {
+      @apply text-xl font-semibold leading-relaxed;
+    }
 
-  table {
-    @apply table-fixed border-collapse border border-slate-400;
-  }
+    table {
+      @apply table-fixed border-collapse border;
+    }
 
-  td {
-    @apply border border-slate-300 p-4 text-slate-500;
-  }
+    td {
+      @apply border p-4 bg-white;
+    }
 
-  th {
-    @apply w-1/2 border border-slate-300 font-semibold p-4 text-slate-900 text-left;
-  }
+    th {
+      @apply w-1/2 border font-semibold p-4 text-left bg-white;
+    }
 
-  th, td p {
-    @apply mb-0;
-  }
+    th, td p {
+      @apply mb-0
+    }
 
+  }
 }
+
+
 
 
 

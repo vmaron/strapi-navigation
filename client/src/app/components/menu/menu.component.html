@@ -1,9 +1,9 @@
 <nav
-  class="relative w-full flex flex-wrap items-center justify-between bg-blue-800 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light"
+  class="bg-white relative w-full flex flex-wrap items-center justify-between shadow-lg navbar navbar-expand-lg navbar-light"
 >
   <div class="container-fluid h-18 py-2 w-full flex flex-wrap items-center justify-between px-6">
     <button
-      class="lg:hidden text-gray-200 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
+      class="lg:hidden border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
       type="button"
       [ngClass]="{'collapsed': !isOpen}"
       (click)="toggleNavMenu()"
@@ -14,13 +14,13 @@
 
     <!-- Mobile Right Menu -->
     <app-user-menu
-      class="flex lg:hidden items-center"
+      class="flex lg:hidden items-center text-purple-600"
     >
     </app-user-menu>
 
     <!-- Collapsible wrapper -->
     <div class="navbar-collapse flex-grow items-center" [ngClass]="{'hidden': !isOpen }">
-      <a class="text-xl text-white pr-2 font-semibold hidden lg:block" routerLink="/">Logo</a>
+      <a class="text-xl pr-2 font-semibold hidden lg:block text-purple-600" routerLink="/">Logo</a>
 
       <!-- Left links -->
       <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
@@ -28,7 +28,7 @@
 
           <li class="nav-item p-2" *ngIf="!item.menuAttached; else menuAttached">
             <a
-              class="nav-link block cursor-pointer pr-2 lg:px-2 py-2 text-white opacity-60 hover:opacity-80 focus:opacity-80 transition duration-150 ease-in-out"
+              class="nav-link block cursor-pointer pr-2 lg:px-2 py-2 hover:opacity-80 focus:opacity-80 transition duration-150 ease-in-out"
               (click)="handleMenuItemClick(item)"
             > {{ item.title }}</a
             >
@@ -36,16 +36,16 @@
 
           <ng-template #menuAttached>
             <li class="nav-item p-2 dropdown static">
-              <a class="nav-link block pr-2 lg:px-2 py-2 text-white opacity-60 hover:opacity-80 focus:opacity-80 transition duration-150 ease-in-out dropdown-toggle flex items-center whitespace-nowrap" href="#" data-mdb-ripple="true" data-mdb-ripple-color="light" type="button" id="dropdownMenuButtonZ" data-bs-toggle="dropdown"
+              <a class="nav-link block pr-2 lg:px-2 py-2 hover:opacity-80 focus:opacity-80 transition duration-150 ease-in-out dropdown-toggle flex items-center whitespace-nowrap" href="#" data-mdb-ripple="true" data-mdb-ripple-color="light" type="button" id="dropdownMenuButtonZ" data-bs-toggle="dropdown"
                  aria-expanded="false">{{ item.title }}
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="w-2 ml-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                   <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path>
                 </svg>
               </a>
               <div class="dropdown-menu w-full mt-0 hidden shadow-lg bg-white absolute left-0 top-full" aria-labelledby="dropdownMenuButtonZ">
-                <div class="px-6 lg:px-8 py-5">
+                <div class="px-6 lg:px-8 py-5 overflow-y-auto">
                   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white text-gray-600" *ngFor="let subItem of item.items; let i = index">
+                    <div class="text-gray-600" *ngFor="let subItem of item.items; let i = index">
                       <ng-container *ngIf="subItem.related.type == 'section'">
                         <p class="block px-6 py-2 w-full uppercase font-semibold text-gray-700">{{subItem.title}}</p>
                         <ng-container *ngFor="let childItem of subItem.items; let i = index">
@@ -72,7 +72,7 @@
 
     <!-- Desktop Right Menu -->
     <app-user-menu
-      class="items-center relative hidden lg:flex"
+      class="items-center relative hidden lg:flex text-purple-600"
     >
     </app-user-menu>
   </div>
