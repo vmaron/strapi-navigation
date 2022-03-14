@@ -29,6 +29,7 @@ export class MenuComponent implements OnInit {
   }
 
   handleMenuItemClick(item: NavigationItemDto) {
+    this.isOpen = false;
     this.store.dispatch(actionLoadPage({payload: {currentPage: item}}));
   }
 

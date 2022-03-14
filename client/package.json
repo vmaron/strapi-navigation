@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "api": "cd ../api && npm run develop",
+    "demo": "start npm run start && cd ../api && start npm run develop",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
