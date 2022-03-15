@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_image_library_photos",
+  "info": {
+    "displayName": "Photo",
+    "icon": "camera",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "imageTitle": {
+      "type": "string"
+    },
+    "imageSubTitle": {
+      "type": "string"
+    },
+    "imageDescription": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "photo_galleries",
+  "info": {
+    "singularName": "photo-gallery",
+    "pluralName": "photo-galleries",
+    "displayName": "Photo Gallery",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imageAssets": {
+      "type": "component",
+      "repeatable": true,
+      "component": "image-library.photo"
+    }
+  }
+}

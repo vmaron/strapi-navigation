@@ -1,5 +1,5 @@
 import {createAction, props} from '@ngrx/store';
-import {NavigationItemDto, PageContent} from "./navigation.model";
+import {ImageDTO, ImageLibraryRequest, NavigationItemDto, PageContent} from "./navigation.model";
 
 export const actionLoadPage = createAction(
   '[Navigation] Load Page',
@@ -9,4 +9,9 @@ export const actionLoadPage = createAction(
 export const actionLoadPageContent = createAction(
   '[Navigation] Load Page Content',
   props<{ payload: PageContent }>()
+);
+
+export const actionLoadImageLibraryContent = createAction(
+  '[Navigation] Load Image Library',
+  props<{ payload: {imageAssets: ImageDTO[]} }>()
 );

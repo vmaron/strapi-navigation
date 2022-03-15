@@ -30,7 +30,7 @@ export interface PageContent {
   body: string;
 }
 
-export interface PageContentDto {
+export interface PageContentDTO {
   data: {
     id: number;
     attributes: {
@@ -49,6 +49,47 @@ export interface PageContentDto {
     };
   }
 }
+
+export interface ImageLibraryRequest {
+  id: number;
+  name: string;
+}
+
+export interface ImageLibraryDTO {
+  data: {
+    id: number;
+    attributes: {
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
+      imageAssets: ImageDTO[];
+    };
+  };
+}
+
+export interface ImageDTO {
+  id: number;
+  attributes: {
+    name: string;
+    alternativeText: string;
+    caption: string;
+    width?: null;
+    height?: null;
+    formats?: null;
+    hash: string;
+    ext: string;
+    mime: string;
+    size: number;
+    url: string;
+    previewUrl?: null;
+    provider?: null;
+    provider_metadata?: null;
+    createdAt: string;
+    updatedAt: string;
+  }
+}
+
+
 
 
 

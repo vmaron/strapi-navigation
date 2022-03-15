@@ -1,13 +1,15 @@
 import {NavigationState} from './navigation.state';
-import {actionLoadPage, actionLoadPageContent} from './navigtion.actions';
+import {actionLoadImageLibraryContent, actionLoadPage, actionLoadPageContent} from './navigtion.actions';
 import {Action, createReducer, on} from '@ngrx/store';
+import {ImageDTO} from "./navigation.model";
 
 export const navigationFeatureKey = 'navigation';
 
 export const initialState: NavigationState = {
   currentPage: undefined,
   loading: false,
-  pageBody: ''
+  pageBody: '',
+  imageAssets: []
 };
 
 const reducer = createReducer(
@@ -18,6 +20,9 @@ const reducer = createReducer(
   ),
   on(actionLoadPageContent,
     (state, action) => ({...state, loading: false, pageBody: action.payload.body})
+  ),
+  on(actionLoadImageLibraryContent,
+    (state, action) => ({...state, loading: false, imageAssets: action.payload.imageAssets})
   ),
 );
 
