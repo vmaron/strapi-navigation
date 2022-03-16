@@ -69,23 +69,29 @@ export interface ImageLibraryDTO {
 
 export interface ImageDTO {
   id: number;
-  attributes: {
-    name: string;
-    alternativeText: string;
-    caption: string;
-    width?: null;
-    height?: null;
-    formats?: null;
-    hash: string;
-    ext: string;
-    mime: string;
-    size: number;
-    url: string;
-    previewUrl?: null;
-    provider?: null;
-    provider_metadata?: null;
-    createdAt: string;
-    updatedAt: string;
+  imageTitle: string;
+  imageSubTitle: string;
+  image: {
+    data: {
+      attributes: {
+        name: string;
+        alternativeText: string;
+        caption: string;
+        width?: null;
+        height?: null;
+        formats?: null;
+        hash: string;
+        ext: string;
+        mime: string;
+        size: number;
+        url: string;
+        previewUrl?: null;
+        provider?: null;
+        provider_metadata?: null;
+        createdAt: string;
+        updatedAt: string;
+      }
+    }
   }
 }
 

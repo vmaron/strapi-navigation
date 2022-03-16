@@ -5,6 +5,7 @@ import {GenericContentRoutingModule} from './generic-content-routing.module';
 import {GenericContentComponent} from './generic-content.component';
 import {SafeHtmlPipe} from "./pipes/safe-html.pipe";
 import {LoadingIndicatorModule} from "../../components/loading-indicator/loading-indicator.module";
+import {ImagesModule} from "../../components/images/images.module";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {LoadingIndicatorModule} from "../../components/loading-indicator/loading
   imports: [
     CommonModule,
     GenericContentRoutingModule,
-    LoadingIndicatorModule
+    LoadingIndicatorModule,
+    ImagesModule
   ]
 })
 export class GenericContentModule {

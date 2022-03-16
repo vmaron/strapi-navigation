@@ -4,6 +4,7 @@ import {State} from "../../../core/navigation/navigation.state";
 import {select, Store} from "@ngrx/store";
 import {Subject, takeUntil} from "rxjs";
 import {selectNavigation} from "../../../core/navigation/navigation.selectors";
+import {ImageDTO} from "../../../core/navigation/navigation.model";
 
 
 @Component({
@@ -17,6 +18,9 @@ export class GenericContentComponent implements OnInit, OnDestroy{
   ngUnsubscribe: Subject<any> = new Subject();
   loading: boolean = false;
   pageBody: string = '';
+  contentType: string | undefined;
+  imageAssets: ImageDTO[] = [];
+  title: string = '';
 
   constructor(private readonly route: ActivatedRoute,
               private router: Router,
@@ -39,6 +43,9 @@ export class GenericContentComponent implements OnInit, OnDestroy{
     this.store.pipe(select(selectNavigation)).pipe(takeUntil(this.ngUnsubscribe)).subscribe((nav) => {
       this.loading = nav.loading;
       this.pageBody = nav.pageBody;
+      this.imageAssets = nav.imageAssets || [];
+      this.title = nav.currentPage?.title || '';
+      this.contentType = nav.currentPage?.related?.__contentType;
     });
   }
 

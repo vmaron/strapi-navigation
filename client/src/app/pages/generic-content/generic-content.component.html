@@ -1,19 +1,34 @@
 <div class="flex min-w-full min-h-full justify-center align-middle px-5 py-5 md:px-20 lg:px-40 lg:py-10">
 
-  <app-loading-indicator *ngIf="loading; else loaded">
+  <app-loading-indicator
+    *ngIf="loading; else loaded">
   </app-loading-indicator>
 
   <ng-template #loaded>
-    <div
-      *ngIf="pageBody; else routeName"
-      [innerHTML]="pageBody | safehtml"
-      class="content">
-    </div>
+    <section class="container">
+      <h2 class="mb-8 text-xl font-black text-gray-800 capitalize md:text-2xl">{{ title}}</h2>
 
-    <ng-template #routeName>
-      <p>{{routeUrl}}</p>
-    </ng-template>
+      <div [ngSwitch]="contentType">
+
+        <div *ngSwitchCase="'api::page.page'">
+          <div
+            *ngIf="pageBody; else routeName"
+            [innerHTML]="pageBody | safehtml"
+            class="content">
+          </div>
+          <ng-template #routeName>
+            <p>{{routeUrl}}</p>
+          </ng-template>
+        </div>
+
+        <div *ngSwitchCase="'api::photo-gallery.photo-gallery'">
+          <app-thumbnail-grid
+            [thumbnails]="imageAssets">
+          </app-thumbnail-grid>
+        </div>
+
+      </div>
+    </section>
   </ng-template>
-
 
 </div>
