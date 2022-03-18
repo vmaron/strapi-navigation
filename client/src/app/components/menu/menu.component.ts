@@ -10,13 +10,12 @@ import {actionLoadPage} from "../../../core/navigation/navigtion.actions";
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
   _menuItems: Array<NavigationItemDto> = [];
   isOpen: boolean = false;
 
   @Input() set menuItems(value: Array<NavigationItemDto>) {
     this._menuItems = value;
-    console.log(this._menuItems);
+    this.loadContentByPath(this._menuItems, window.location.pathname);
   }
 
   constructor(
@@ -25,7 +24,20 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
 
+  loadContentByPath(navItems: Array<NavigationItemDto>, path: string): boolean {
+    return navItems.every((navItem) => {
+      if (navItem.path === path) {
+        this.store.dispatch(actionLoadPage({payload: {currentPage: navItem}}));
+        return false;
+      } else {
+        if (navItem.items) {
+          this.loadContentByPath(navItem.items, path);
+        }
+      }
+      return true;
+    });
   }
 
   handleMenuItemClick(item: NavigationItemDto) {

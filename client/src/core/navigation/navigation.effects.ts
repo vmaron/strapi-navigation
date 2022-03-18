@@ -38,7 +38,7 @@ export class NavigationEffects {
 
                         setTimeout(() => this.store.dispatch(actionLoadPageContent({
                           payload: {id, name, body}
-                        })), 400);
+                        })), 250);
 
                       },
                       error: error => {
